@@ -6,7 +6,7 @@ fertilizer_bp = Blueprint('fertilizer', __name__)
 
 # Route to get all fertilizers
 @fertilizer_bp.route('/get_fertilizers', methods=['GET'])
-@login_required
+##@login_required
 def get_fertilizers():
     conn = get_db_connection()
     cursor = conn.cursor()
@@ -23,7 +23,7 @@ def get_fertilizers():
 
 # Route to add a new fertilizer
 @fertilizer_bp.route('/add_fertilizer', methods=['POST'])
-@login_required
+##@login_required
 def add_fertilizer():
     data = request.get_json()
     fertilizer_name = data['fertilizer_name']
@@ -46,7 +46,7 @@ def add_fertilizer():
 
 # Route to delete a fertilizer
 @fertilizer_bp.route('/delete_fertilizer', methods=['POST'])
-@login_required
+##@login_required
 def delete_fertilizer():
     data = request.get_json()
     fertilizer_name = data['fertilizer_name']
@@ -65,7 +65,7 @@ def delete_fertilizer():
 
 # Route to update a fertilizer
 @fertilizer_bp.route('/update_fertilizer', methods=['POST'])
-@login_required
+##@login_required
 def update_fertilizer():
     data = request.get_json()
     fertilizer_name = data['fertilizer_name']
@@ -99,7 +99,7 @@ def update_fertilizer():
 
 # Route to ingest fertilizers from a survey
 @fertilizer_bp.route('/ingest_fertilizers', methods=['POST'])
-@login_required
+##@login_required
 def ingest_fertilizers():
     conn = get_db_connection()
     cursor = conn.cursor()
