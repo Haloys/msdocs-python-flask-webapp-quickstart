@@ -1,4 +1,4 @@
-from flask import Flask, send_from_directory
+from flask import Flask, send_from_directory, redirect, url_for
 from flask_cors import CORS
 import secrets
 from routes.auth import auth_bp
@@ -36,10 +36,15 @@ app.register_blueprint(survey_master_bp)
 app.register_blueprint(real_time_info_bp)
 app.register_blueprint(status_bp)
 
-# Serve the index.html at the root URL
-@app.route('/')
-def serve_index():
+# Serve the index.html at the /login URL for frontend
+@app.route('/login', methods=['GET'])
+def serve_login_page():
     return send_from_directory(app.static_folder, 'index.html')
+
+# Redirect root URL to /login
+@app.route('/')
+def redirect_to_login():
+    return redirect(url_for('serve_login_page'))
 
 if __name__ == '__main__':
     # Run the Flask application in debug mode
