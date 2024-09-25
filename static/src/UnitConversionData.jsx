@@ -22,14 +22,14 @@ function UnitConversionDataTable() {
 
     // Fetches the unit conversion data from the server
     const fetchUnitConversionData = () => {
-        axios.get('http://localhost:5000/get_unit_conversion_data', { withCredentials: true })
+        axios.get('https://sucafina-we-impact-webapp-01-gch6g5bjhrbndje6.westeurope-01.azurewebsites.net/get_unit_conversion_data', { withCredentials: true })
             .then(response => setUnitConversionData(response.data))
             .catch(error => console.error('Error fetching unit conversion data:', error));
     };
 
     // Handles the add/update operation for unit conversion data
     const handleAddUpdate = () => {
-        const url = formMode === 'add' ? 'http://localhost:5000/add_unit_conversion_data' : 'http://localhost:5000/update_unit_conversion_data';
+        const url = formMode === 'add' ? 'https://sucafina-we-impact-webapp-01-gch6g5bjhrbndje6.westeurope-01.azurewebsites.net/add_unit_conversion_data' : 'https://sucafina-we-impact-webapp-01-gch6g5bjhrbndje6.westeurope-01.azurewebsites.net/update_unit_conversion_data';
         axios.post(url, unitConversionDetails, { withCredentials: true })
             .then(response => {
                 setAlert({ type: 'success', message: `Unit conversion data ${formMode}d successfully!` });
@@ -41,7 +41,7 @@ function UnitConversionDataTable() {
 
     // Handles the delete operation for unit conversion data
     const handleDelete = () => {
-        axios.post('http://localhost:5000/delete_unit_conversion_data', { reported_unit_name: selectedUnitConversionData.reported_unit_name }, { withCredentials: true })
+        axios.post('https://sucafina-we-impact-webapp-01-gch6g5bjhrbndje6.westeurope-01.azurewebsites.net/delete_unit_conversion_data', { reported_unit_name: selectedUnitConversionData.reported_unit_name }, { withCredentials: true })
             .then(response => {
                 setAlert({ type: 'success', message: 'Unit conversion data deleted successfully!' });
                 fetchUnitConversionData();
@@ -56,7 +56,7 @@ function UnitConversionDataTable() {
 
     // Handles the ingest operation for unit conversion data
     const handleIngest = () => {
-        axios.post('http://localhost:5000/ingest_unit_conversion_data', {}, { withCredentials: true })
+        axios.post('https://sucafina-we-impact-webapp-01-gch6g5bjhrbndje6.westeurope-01.azurewebsites.net/ingest_unit_conversion_data', {}, { withCredentials: true })
             .then(response => {
                 setAlert({ type: 'success', message: 'Unit conversion data ingested successfully!' });
                 fetchUnitConversionData();

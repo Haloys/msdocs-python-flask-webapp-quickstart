@@ -10,7 +10,7 @@ function LoginForm({ onLogin }) {
 
   const handleLogin = () => {
     // Send a POST request to the server to perform login
-    axios.post('http://localhost:5000/login', { username, password }, { withCredentials: true })
+    axios.post('https://sucafina-we-impact-webapp-01-gch6g5bjhrbndje6.westeurope-01.azurewebsites.net/login', { username, password }, { withCredentials: true })
       .then(response => {
         // If login is successful, call the onLogin function passed as a prop
         onLogin(username);

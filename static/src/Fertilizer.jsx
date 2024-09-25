@@ -26,14 +26,14 @@ function FertilizerTable() {
 
   const fetchFertilizers = () => {
     // Fetches the list of fertilizers from the server
-    axios.get('http://localhost:5000/get_fertilizers', { withCredentials: true })
+    axios.get('https://sucafina-we-impact-webapp-01-gch6g5bjhrbndje6.westeurope-01.azurewebsites.net/get_fertilizers', { withCredentials: true })
       .then(response => setFertilizers(response.data))
       .catch(error => console.error('Error fetching fertilizers:', error));
   };
 
   const handleAddUpdate = () => {
     // Handles the add or update operation for a fertilizer
-    const url = formMode === 'add' ? 'http://localhost:5000/add_fertilizer' : 'http://localhost:5000/update_fertilizer';
+    const url = formMode === 'add' ? 'https://sucafina-we-impact-webapp-01-gch6g5bjhrbndje6.westeurope-01.azurewebsites.net/add_fertilizer' : 'https://sucafina-we-impact-webapp-01-gch6g5bjhrbndje6.westeurope-01.azurewebsites.net/update_fertilizer';
     axios.post(url, fertilizerDetails, { withCredentials: true })
       .then(response => {
         setAlert({ type: 'success', message: `Fertilizer ${formMode}d successfully!` });
@@ -45,7 +45,7 @@ function FertilizerTable() {
 
   const handleDelete = () => {
     // Handles the delete operation for a fertilizer
-    axios.post('http://localhost:5000/delete_fertilizer', { fertilizer_name: selectedFertilizer.fertilizer_name }, { withCredentials: true })
+    axios.post('https://sucafina-we-impact-webapp-01-gch6g5bjhrbndje6.westeurope-01.azurewebsites.net/delete_fertilizer', { fertilizer_name: selectedFertilizer.fertilizer_name }, { withCredentials: true })
       .then(response => {
         setAlert({ type: 'success', message: 'Fertilizer deleted successfully!' });
         fetchFertilizers();
@@ -60,7 +60,7 @@ function FertilizerTable() {
 
   const handleIngest = () => {
     // Handles the ingestion of fertilizers from a survey
-    axios.post('http://localhost:5000/ingest_fertilizers', {}, { withCredentials: true })
+    axios.post('https://sucafina-we-impact-webapp-01-gch6g5bjhrbndje6.westeurope-01.azurewebsites.net/ingest_fertilizers', {}, { withCredentials: true })
       .then(response => {
         setAlert({ type: 'success', message: 'Fertilizers ingested successfully!' });
         fetchFertilizers();

@@ -7,7 +7,7 @@ function Status() {
 
     useEffect(() => {
         // Fetch the status data from the server
-        axios.get('http://localhost:5000/status', { withCredentials: true })
+        axios.get('https://sucafina-we-impact-webapp-01-gch6g5bjhrbndje6.westeurope-01.azurewebsites.net/status', { withCredentials: true })
             .then(response => {
                 // Update the state with the fetched data
                 setDataMissingCounts(response.data);

@@ -12,7 +12,7 @@ function AdminPanel() {
     }, []);
 
     const fetchUsers = () => {
-        axios.get('http://localhost:5000/users', { withCredentials: true }) // Make a GET request to fetch the users
+        axios.get('https://sucafina-we-impact-webapp-01-gch6g5bjhrbndje6.westeurope-01.azurewebsites.net/users', { withCredentials: true }) // Make a GET request to fetch the users
             .then(response => setUsers(response.data)) // Update the users state with the response data
             .catch(error => console.error('Error fetching users:', error)); // Log any errors that occur
     };
@@ -28,7 +28,7 @@ function AdminPanel() {
             return;
         }
 
-        axios.post('http://localhost:5000/users', { username, password }, { withCredentials: true }) // Make a POST request to add a new user
+        axios.post('https://sucafina-we-impact-webapp-01-gch6g5bjhrbndje6.westeurope-01.azurewebsites.net/users', { username, password }, { withCredentials: true }) // Make a POST request to add a new user
             .then(response => {
                 fetchUsers(); // Fetch the updated list of users
                 setUsername(''); // Clear the username input field
@@ -38,7 +38,7 @@ function AdminPanel() {
     };
 
     const handleDeleteUser = (user) => {
-        axios.delete('http://localhost:5000/users', { data: { username: user }, withCredentials: true }) // Make a DELETE request to delete a user
+        axios.delete('https://sucafina-we-impact-webapp-01-gch6g5bjhrbndje6.westeurope-01.azurewebsites.net/users', { data: { username: user }, withCredentials: true }) // Make a DELETE request to delete a user
             .then(response => fetchUsers()) // Fetch the updated list of users
             .catch(error => console.error('Error deleting user:', error)); // Log any errors that occur
     };

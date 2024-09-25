@@ -25,14 +25,14 @@ function AgrochemicalCostTable() {
 
     const fetchAgrochemicalCosts = () => {
         // Fetch agrochemical costs from the server
-        axios.get('http://localhost:5000/get_agrochemical_costs', { withCredentials: true })
+        axios.get('https://sucafina-we-impact-webapp-01-gch6g5bjhrbndje6.westeurope-01.azurewebsites.net/get_agrochemical_costs', { withCredentials: true })
             .then(response => setAgrochemicalCosts(response.data))
             .catch(error => console.error('Error fetching agrochemical costs:', error));
     };
 
     const handleAddUpdate = () => {
         // Add or update agrochemical cost
-        const url = formMode === 'add' ? 'http://localhost:5000/add_agrochemical_cost' : 'http://localhost:5000/update_agrochemical_cost';
+        const url = formMode === 'add' ? 'https://sucafina-we-impact-webapp-01-gch6g5bjhrbndje6.westeurope-01.azurewebsites.net/add_agrochemical_cost' : 'https://sucafina-we-impact-webapp-01-gch6g5bjhrbndje6.westeurope-01.azurewebsites.net/update_agrochemical_cost';
         axios.post(url, agrochemicalCostDetails, { withCredentials: true })
             .then(response => {
                 setAlert({ type: 'success', message: `Agrochemical cost ${formMode}d successfully!` });
@@ -44,7 +44,7 @@ function AgrochemicalCostTable() {
 
     const handleDelete = () => {
         // Delete agrochemical cost
-        axios.post('http://localhost:5000/delete_agrochemical_cost', { agrochemical_item_name: selectedAgrochemicalCost.agrochemical_item_name }, { withCredentials: true })
+        axios.post('https://sucafina-we-impact-webapp-01-gch6g5bjhrbndje6.westeurope-01.azurewebsites.net/delete_agrochemical_cost', { agrochemical_item_name: selectedAgrochemicalCost.agrochemical_item_name }, { withCredentials: true })
             .then(response => {
                 setAlert({ type: 'success', message: 'Agrochemical cost deleted successfully!' });
                 fetchAgrochemicalCosts();
@@ -59,7 +59,7 @@ function AgrochemicalCostTable() {
 
     const handleIngest = () => {
         // Ingest agrochemical costs from survey
-        axios.post('http://localhost:5000/ingest_agrochemical_costs', {}, { withCredentials: true })
+        axios.post('https://sucafina-we-impact-webapp-01-gch6g5bjhrbndje6.westeurope-01.azurewebsites.net/ingest_agrochemical_costs', {}, { withCredentials: true })
             .then(response => {
                 setAlert({ type: 'success', message: 'Agrochemical costs ingested successfully!' });
                 fetchAgrochemicalCosts();

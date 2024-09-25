@@ -31,7 +31,7 @@ function App() {
 
   // Function to handle user logout
   const handleLogout = () => {
-    axios.post('http://localhost:5000/logout', {}, { withCredentials: true })
+    axios.post('https://sucafina-we-impact-webapp-01-gch6g5bjhrbndje6.westeurope-01.azurewebsites.net/logout', {}, { withCredentials: true })
       .then(response => {
         setLoggedIn(false); // Set loggedIn state to false
         setIsAdmin(false); // Set isAdmin state to false

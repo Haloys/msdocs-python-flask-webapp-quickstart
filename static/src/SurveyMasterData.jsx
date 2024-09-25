@@ -26,14 +26,14 @@ function SurveyMasterDataTable() {
 
     // Fetches the survey master data from the server
     const fetchSurveyMasterData = () => {
-        axios.get('http://localhost:5000/get_survey_master_data', { withCredentials: true })
+        axios.get('https://sucafina-we-impact-webapp-01-gch6g5bjhrbndje6.westeurope-01.azurewebsites.net/get_survey_master_data', { withCredentials: true })
             .then(response => setSurveyMasterData(response.data))
             .catch(error => console.error('Error fetching survey master data:', error));
     };
 
     // Handles the add/update operation for the survey master data
     const handleAddUpdate = () => {
-        const url = formMode === 'add' ? 'http://localhost:5000/add_survey_master_data' : 'http://localhost:5000/update_survey_master_data';
+        const url = formMode === 'add' ? 'https://sucafina-we-impact-webapp-01-gch6g5bjhrbndje6.westeurope-01.azurewebsites.net/add_survey_master_data' : 'https://sucafina-we-impact-webapp-01-gch6g5bjhrbndje6.westeurope-01.azurewebsites.net/update_survey_master_data';
         axios.post(url, surveyMasterDetails, { withCredentials: true })
             .then(response => {
                 setAlert({ type: 'success', message: `Survey master data ${formMode}d successfully!` });
@@ -45,7 +45,7 @@ function SurveyMasterDataTable() {
 
     // Handles the delete operation for the survey master data
     const handleDelete = () => {
-        axios.post('http://localhost:5000/delete_survey_master_data', { survey_id: selectedSurveyMasterData.survey_id }, { withCredentials: true })
+        axios.post('https://sucafina-we-impact-webapp-01-gch6g5bjhrbndje6.westeurope-01.azurewebsites.net/delete_survey_master_data', { survey_id: selectedSurveyMasterData.survey_id }, { withCredentials: true })
             .then(response => {
                 setAlert({ type: 'success', message: 'Survey master data deleted successfully!' });
                 fetchSurveyMasterData();
@@ -60,7 +60,7 @@ function SurveyMasterDataTable() {
 
     // Handles the ingest operation for the survey master data
     const handleIngest = () => {
-        axios.post('http://localhost:5000/ingest_survey_master_data', {}, { withCredentials: true })
+        axios.post('https://sucafina-we-impact-webapp-01-gch6g5bjhrbndje6.westeurope-01.azurewebsites.net/ingest_survey_master_data', {}, { withCredentials: true })
             .then(response => {
                 setAlert({ type: 'success', message: 'Survey master data ingested successfully!' });
                 fetchSurveyMasterData();

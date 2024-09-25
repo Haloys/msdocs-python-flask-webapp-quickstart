@@ -25,14 +25,14 @@ function AgrochemicalTable() {
 
     const fetchAgrochemicals = () => {
         // Fetch agrochemicals from the server
-        axios.get('http://localhost:5000/get_agrochemicals', { withCredentials: true })
+        axios.get('https://sucafina-we-impact-webapp-01-gch6g5bjhrbndje6.westeurope-01.azurewebsites.net/get_agrochemicals', { withCredentials: true })
             .then(response => setAgrochemicals(response.data))
             .catch(error => console.error('Error fetching agrochemicals:', error));
     };
 
     const handleAddUpdate = () => {
         // Add or update an agrochemical
-        const url = formMode === 'add' ? 'http://localhost:5000/add_agrochemical' : 'http://localhost:5000/update_agrochemical';
+        const url = formMode === 'add' ? 'https://sucafina-we-impact-webapp-01-gch6g5bjhrbndje6.westeurope-01.azurewebsites.net/add_agrochemical' : 'https://sucafina-we-impact-webapp-01-gch6g5bjhrbndje6.westeurope-01.azurewebsites.net/update_agrochemical';
         axios.post(url, agrochemicalDetails, { withCredentials: true })
             .then(response => {
                 setAlert({ type: 'success', message: `Agrochemical ${formMode}d successfully!` });
@@ -44,7 +44,7 @@ function AgrochemicalTable() {
 
     const handleDelete = () => {
         // Delete an agrochemical
-        axios.post('http://localhost:5000/delete_agrochemical', { agrochemical_name: selectedAgrochemical.agrochemical_name }, { withCredentials: true })
+        axios.post('https://sucafina-we-impact-webapp-01-gch6g5bjhrbndje6.westeurope-01.azurewebsites.net/delete_agrochemical', { agrochemical_name: selectedAgrochemical.agrochemical_name }, { withCredentials: true })
             .then(response => {
                 setAlert({ type: 'success', message: 'Agrochemical deleted successfully!' });
                 fetchAgrochemicals();
@@ -59,7 +59,7 @@ function AgrochemicalTable() {
 
     const handleIngest = () => {
         // Ingest agrochemicals from a survey
-        axios.post('http://localhost:5000/ingest_agrochemicals', {}, { withCredentials: true })
+        axios.post('https://sucafina-we-impact-webapp-01-gch6g5bjhrbndje6.westeurope-01.azurewebsites.net/ingest_agrochemicals', {}, { withCredentials: true })
             .then(response => {
                 setAlert({ type: 'success', message: 'Agrochemicals ingested successfully!' });
                 fetchAgrochemicals();

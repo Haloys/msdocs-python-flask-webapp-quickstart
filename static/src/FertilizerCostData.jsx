@@ -26,14 +26,14 @@ function FertilizerCostTable() {
 
     const fetchFertilizerCosts = () => {
         // Fetches the fertilizer costs from the server
-        axios.get('http://localhost:5000/get_fertilizer_costs', { withCredentials: true })
+        axios.get('https://sucafina-we-impact-webapp-01-gch6g5bjhrbndje6.westeurope-01.azurewebsites.net/get_fertilizer_costs', { withCredentials: true })
             .then(response => setFertilizerCosts(response.data))
             .catch(error => console.error('Error fetching fertilizer costs:', error));
     };
 
     const handleAddUpdate = () => {
         // Handles the add or update operation of the fertilizer cost
-        const url = formMode === 'add' ? 'http://localhost:5000/add_fertilizer_cost' : 'http://localhost:5000/update_fertilizer_cost';
+        const url = formMode === 'add' ? 'https://sucafina-we-impact-webapp-01-gch6g5bjhrbndje6.westeurope-01.azurewebsites.net/add_fertilizer_cost' : 'https://sucafina-we-impact-webapp-01-gch6g5bjhrbndje6.westeurope-01.azurewebsites.net/update_fertilizer_cost';
         axios.post(url, fertilizerCostDetails, { withCredentials: true })
             .then(response => {
                 setAlert({ type: 'success', message: `Fertilizer cost ${formMode}d successfully!` });
@@ -45,7 +45,7 @@ function FertilizerCostTable() {
 
     const handleDelete = () => {
         // Handles the delete operation of the fertilizer cost
-        axios.post('http://localhost:5000/delete_fertilizer_cost', { fertilizer_item_name: selectedFertilizerCost.fertilizer_item_name }, { withCredentials: true })
+        axios.post('https://sucafina-we-impact-webapp-01-gch6g5bjhrbndje6.westeurope-01.azurewebsites.net/delete_fertilizer_cost', { fertilizer_item_name: selectedFertilizerCost.fertilizer_item_name }, { withCredentials: true })
             .then(response => {
                 setAlert({ type: 'success', message: 'Fertilizer cost deleted successfully!' });
                 fetchFertilizerCosts();
@@ -60,7 +60,7 @@ function FertilizerCostTable() {
 
     const handleIngest = () => {
         // Handles the ingestion of fertilizer costs from a survey
-        axios.post('http://localhost:5000/ingest_fertilizer_costs', {}, { withCredentials: true })
+        axios.post('https://sucafina-we-impact-webapp-01-gch6g5bjhrbndje6.westeurope-01.azurewebsites.net/ingest_fertilizer_costs', {}, { withCredentials: true })
             .then(response => {
                 setAlert({ type: 'success', message: 'Fertilizer costs ingested successfully!' });
                 fetchFertilizerCosts();

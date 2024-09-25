@@ -25,14 +25,14 @@ function OriginEconomicsDataTable() {
 
     // Fetches the origin economics data from the server
     const fetchOriginEconomicsData = () => {
-        axios.get('http://localhost:5000/get_origin_economics_data', { withCredentials: true })
+        axios.get('https://sucafina-we-impact-webapp-01-gch6g5bjhrbndje6.westeurope-01.azurewebsites.net/get_origin_economics_data', { withCredentials: true })
             .then(response => setOriginEconomicsData(response.data))
             .catch(error => console.error('Error fetching origin economics data:', error));
     };
 
     // Handles the add/update operation
     const handleAddUpdate = () => {
-        const url = formMode === 'add' ? 'http://localhost:5000/add_origin_economics_data' : 'http://localhost:5000/update_origin_economics_data';
+        const url = formMode === 'add' ? 'https://sucafina-we-impact-webapp-01-gch6g5bjhrbndje6.westeurope-01.azurewebsites.net/add_origin_economics_data' : 'https://sucafina-we-impact-webapp-01-gch6g5bjhrbndje6.westeurope-01.azurewebsites.net/update_origin_economics_data';
         axios.post(url, originEconomicsDetails, { withCredentials: true })
             .then(response => {
                 setAlert({ type: 'success', message: `Origin economics data ${formMode}d successfully!` });
@@ -44,7 +44,7 @@ function OriginEconomicsDataTable() {
 
     // Handles the delete operation
     const handleDelete = () => {
-        axios.post('http://localhost:5000/delete_origin_economics_data', { survey_year_origin: selectedOriginEconomicsData.survey_year_origin }, { withCredentials: true })
+        axios.post('https://sucafina-we-impact-webapp-01-gch6g5bjhrbndje6.westeurope-01.azurewebsites.net/delete_origin_economics_data', { survey_year_origin: selectedOriginEconomicsData.survey_year_origin }, { withCredentials: true })
             .then(response => {
                 setAlert({ type: 'success', message: 'Origin economics data deleted successfully!' });
                 fetchOriginEconomicsData();
@@ -59,7 +59,7 @@ function OriginEconomicsDataTable() {
 
     // Handles the ingest operation
     const handleIngest = () => {
-        axios.post('http://localhost:5000/ingest_origin_economics_data', {}, { withCredentials: true })
+        axios.post('https://sucafina-we-impact-webapp-01-gch6g5bjhrbndje6.westeurope-01.azurewebsites.net/ingest_origin_economics_data', {}, { withCredentials: true })
             .then(response => {
                 setAlert({ type: 'success', message: 'Origin economics data ingested successfully!' });
                 fetchOriginEconomicsData();

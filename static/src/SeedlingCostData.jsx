@@ -25,14 +25,14 @@ function SeedlingCostTable() {
 
     const fetchSeedlingCosts = () => {
         // Fetch seedling costs from the server
-        axios.get('http://localhost:5000/get_seedling_costs', { withCredentials: true })
+        axios.get('https://sucafina-we-impact-webapp-01-gch6g5bjhrbndje6.westeurope-01.azurewebsites.net/get_seedling_costs', { withCredentials: true })
             .then(response => setSeedlingCosts(response.data))
             .catch(error => console.error('Error fetching seedling costs:', error));
     };
 
     const handleAddUpdate = () => {
         // Handle adding or updating a seedling cost
-        const url = formMode === 'add' ? 'http://localhost:5000/add_seedling_cost' : 'http://localhost:5000/update_seedling_cost';
+        const url = formMode === 'add' ? 'https://sucafina-we-impact-webapp-01-gch6g5bjhrbndje6.westeurope-01.azurewebsites.net/add_seedling_cost' : 'https://sucafina-we-impact-webapp-01-gch6g5bjhrbndje6.westeurope-01.azurewebsites.net/update_seedling_cost';
         axios.post(url, seedlingCostDetails, { withCredentials: true })
             .then(response => {
                 setAlert({ type: 'success', message: `Seedling cost ${formMode}d successfully!` });
@@ -44,7 +44,7 @@ function SeedlingCostTable() {
 
     const handleDelete = () => {
         // Handle deleting a seedling cost
-        axios.post('http://localhost:5000/delete_seedling_cost', { seedling_item_name: selectedSeedlingCost.seedling_item_name }, { withCredentials: true })
+        axios.post('https://sucafina-we-impact-webapp-01-gch6g5bjhrbndje6.westeurope-01.azurewebsites.net/delete_seedling_cost', { seedling_item_name: selectedSeedlingCost.seedling_item_name }, { withCredentials: true })
             .then(response => {
                 setAlert({ type: 'success', message: 'Seedling cost deleted successfully!' });
                 fetchSeedlingCosts();
@@ -59,7 +59,7 @@ function SeedlingCostTable() {
 
     const handleIngest = () => {
         // Handle ingesting seedling costs from a survey
-        axios.post('http://localhost:5000/ingest_seedling_costs', {}, { withCredentials: true })
+        axios.post('https://sucafina-we-impact-webapp-01-gch6g5bjhrbndje6.westeurope-01.azurewebsites.net/ingest_seedling_costs', {}, { withCredentials: true })
             .then(response => {
                 setAlert({ type: 'success', message: 'Seedling costs ingested successfully!' });
                 fetchSeedlingCosts();

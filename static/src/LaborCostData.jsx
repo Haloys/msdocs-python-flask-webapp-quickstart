@@ -21,13 +21,13 @@ function LaborCostTable() {
     }, []);
 
     const fetchLaborCosts = () => {
-        axios.get('http://localhost:5000/get_labor_costs', { withCredentials: true }) // Fetch labor costs from API
+        axios.get('https://sucafina-we-impact-webapp-01-gch6g5bjhrbndje6.westeurope-01.azurewebsites.net/get_labor_costs', { withCredentials: true }) // Fetch labor costs from API
             .then(response => setLaborCosts(response.data)) // Update labor costs state with fetched data
             .catch(error => console.error('Error fetching labor costs:', error)); // Handle error if any
     };
 
     const handleAddUpdate = () => {
-        const url = formMode === 'add' ? 'http://localhost:5000/add_labor_cost' : 'http://localhost:5000/update_labor_cost';
+        const url = formMode === 'add' ? 'https://sucafina-we-impact-webapp-01-gch6g5bjhrbndje6.westeurope-01.azurewebsites.net/add_labor_cost' : 'https://sucafina-we-impact-webapp-01-gch6g5bjhrbndje6.westeurope-01.azurewebsites.net/update_labor_cost';
         axios.post(url, laborCostDetails, { withCredentials: true }) // Add or update labor cost using API
             .then(response => {
                 setAlert({ type: 'success', message: `Labor cost ${formMode}d successfully!` }); // Show success alert
@@ -38,7 +38,7 @@ function LaborCostTable() {
     };
 
     const handleDelete = () => {
-        axios.post('http://localhost:5000/delete_labor_cost', { laborer_activity_name: selectedLaborCost.laborer_activity_name }, { withCredentials: true }) // Delete labor cost using API
+        axios.post('https://sucafina-we-impact-webapp-01-gch6g5bjhrbndje6.westeurope-01.azurewebsites.net/delete_labor_cost', { laborer_activity_name: selectedLaborCost.laborer_activity_name }, { withCredentials: true }) // Delete labor cost using API
             .then(response => {
                 setAlert({ type: 'success', message: 'Labor cost deleted successfully!' }); // Show success alert
                 fetchLaborCosts(); // Fetch updated labor costs
@@ -52,7 +52,7 @@ function LaborCostTable() {
     };
 
     const handleIngest = () => {
-        axios.post('http://localhost:5000/ingest_labor_costs', {}, { withCredentials: true }) // Ingest labor costs using API
+        axios.post('https://sucafina-we-impact-webapp-01-gch6g5bjhrbndje6.westeurope-01.azurewebsites.net/ingest_labor_costs', {}, { withCredentials: true }) // Ingest labor costs using API
             .then(response => {
                 setAlert({ type: 'success', message: 'Labor costs ingested successfully!' }); // Show success alert
                 fetchLaborCosts(); // Fetch updated labor costs
