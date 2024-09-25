@@ -14,9 +14,9 @@ from routes.survey_master_data import survey_master_bp
 from routes.real_time_info import real_time_info_bp
 from routes.status import status_bp
 
-app = Flask(__name__, static_folder='static/public')
+app = Flask(__name__, static_folder='static')
 
-# Enable Cross-Origin Resource Sharing (CORS) to allow requests from different origins
+# Enable Cross-Origin Resource Sharing (CORS)
 CORS(app, supports_credentials=True)
 
 # Generate a secret key for the application
@@ -36,10 +36,15 @@ app.register_blueprint(survey_master_bp)
 app.register_blueprint(real_time_info_bp)
 app.register_blueprint(status_bp)
 
+# Route to serve static files (CSS, JS, images)
+@app.route('/static/<path:path>')
+def serve_static_files(path):
+    return send_from_directory('static', path)
+
 # Serve the index.html at the /login URL for frontend
 @app.route('/login', methods=['GET'])
 def serve_login_page():
-    return send_from_directory(app.static_folder, 'index.html')
+    return send_from_directory(app.static_folder + '/public', 'index.html')
 
 # Redirect root URL to /login
 @app.route('/')
