@@ -31,11 +31,11 @@ jobs:
       - name: Set up Node.js for frontend
         uses: actions/setup-node@v3
         with:
-          node-version: '16' # Assure-toi que la version Node est compatible avec ton projet
+          node-version: '16'
 
       - name: Install frontend dependencies with legacy peer deps
         run: npm install --legacy-peer-deps
-        working-directory: ./static  # Répertoire de ton frontend
+        working-directory: ./static
 
       # Step 3: Zip Python backend and React frontend
       - name: Zip artifact for deployment
