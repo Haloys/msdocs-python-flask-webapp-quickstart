@@ -21,15 +21,16 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '20'  # Assure-toi que la version correspond à celle que tu utilises pour React
+          node-version: '20'
 
-      # Install frontend dependencies with --legacy-peer-deps and build React app
+      # Install frontend dependencies with --legacy-peer-deps
       - name: Install frontend dependencies with --legacy-peer-deps
-        working-directory: ./frontend  # Spécifie le dossier de ton frontend
+        working-directory: ./static
         run: npm install --legacy-peer-deps
 
+      # Build frontend React app
       - name: Build frontend React app
-        working-directory: ./frontend  # Spécifie le dossier de ton frontend
+        working-directory: ./static
         run: npm run build
 
       # Set up Python to deploy the Flask backend
@@ -46,11 +47,11 @@ jobs:
       - name: Install backend dependencies
         run: pip install -r requirements.txt
 
-      # Move the build folder from frontend to the Flask static/public folder
-      - name: Move React build to Flask static folder
+      # Move the build folder from frontend (static/build) to Flask static/public folder
+      - name: Move React build to Flask static/public folder
         run: |
-          rm -rf ./backend/static/public/*
-          mv ./frontend/build/* ./backend/static/public/
+          rm -rf ./static/public/*
+          mv ./static/build/* ./static/public/
 
       # Zip artifact for deployment
       - name: Zip artifact for deployment
