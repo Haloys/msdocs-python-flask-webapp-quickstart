@@ -17,6 +17,22 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # Set up Node.js to build the frontend React app
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'  # Assure-toi que la version correspond à celle que tu utilises pour React
+
+      # Install frontend dependencies with --legacy-peer-deps and build React app
+      - name: Install frontend dependencies with --legacy-peer-deps
+        working-directory: ./frontend  # Spécifie le dossier de ton frontend
+        run: npm install --legacy-peer-deps
+
+      - name: Build frontend React app
+        working-directory: ./frontend  # Spécifie le dossier de ton frontend
+        run: npm run build
+
+      # Set up Python to deploy the Flask backend
       - name: Set up Python version
         uses: actions/setup-python@v5
         with:
@@ -26,12 +42,17 @@ jobs:
         run: |
           python -m venv venv
           source venv/bin/activate
-      
-      - name: Install dependencies
-        run: pip install -r requirements.txt
-        
-      # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
 
+      - name: Install backend dependencies
+        run: pip install -r requirements.txt
+
+      # Move the build folder from frontend to the Flask static/public folder
+      - name: Move React build to Flask static folder
+        run: |
+          rm -rf ./backend/static/public/*
+          mv ./frontend/build/* ./backend/static/public/
+
+      # Zip artifact for deployment
       - name: Zip artifact for deployment
         run: zip release.zip ./* -r
 
@@ -49,7 +70,7 @@ jobs:
     environment:
       name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
-    
+
     steps:
       - name: Download artifact from build job
         uses: actions/download-artifact@v4
@@ -59,7 +80,6 @@ jobs:
       - name: Unzip artifact for deployment
         run: unzip release.zip
 
-      
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v3
         id: deploy-to-webapp
