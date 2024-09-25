@@ -32,16 +32,19 @@ def delete_user_from_db(username):
     conn.close()
 
 # Handles the login route
-@auth_bp.route('/login', methods=['POST'])
+@auth_bp.route('/login', methods=['GET', 'POST'])
 def login():
-    data = request.get_json()
-    user = data.get('username')
-    passwd = data.get('password')
-    users = fetch_users_from_db()
-    if user in users and bcrypt.checkpw(passwd.encode('utf-8'), users[user].encode('utf-8')):
-        session['user'] = user
-        return jsonify({'message': 'Login successful'}), 200
-    return jsonify({'message': 'Invalid credentials'}), 401
+    if request.method == 'GET':
+        return jsonify({'message': 'Use POST to login'}), 405
+    elif request.method == 'POST':
+        data = request.get_json()
+        user = data.get('username')
+        passwd = data.get('password')
+        users = fetch_users_from_db()
+        if user in users and bcrypt.checkpw(passwd.encode('utf-8'), users[user].encode('utf-8')):
+            session['user'] = user
+            return jsonify({'message': 'Login successful'}), 200
+        return jsonify({'message': 'Invalid credentials'}), 401
 
 # Handles the logout route
 @auth_bp.route('/logout', methods=['POST'])
