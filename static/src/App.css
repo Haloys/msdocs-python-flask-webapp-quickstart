@@ -1,0 +1,188 @@
+body {
+  background: linear-gradient(135deg, #002d31 25%, #007680 75%); /* Background gradient */
+  color: #ffffff; /* Text color */
+  font-family: Arial, sans-serif; /* Font family */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  user-select: none; /* Disable text selection */
+}
+
+h1 {
+  color: #ffffff; /* Heading color */
+  margin: 0; /* Remove default margin */
+  user-select: text; /* Enable text selection */
+}
+
+label {
+  font-weight: bold; /* Bold label text */
+  margin-bottom: 0.5rem; /* Add margin below label */
+}
+
+input, select {
+  width: 100%; /* Full width input/select */
+  padding: 0.5rem; /* Input/select padding */
+  border: 1px solid #007680; /* Input/select border */
+  border-radius: 0.25rem; /* Input/select border radius */
+  margin-top: 0.5rem; /* Add margin above input/select */
+  background-color: #007680; /* Input/select background color */
+  color: #fff; /* Input/select text color */
+  box-sizing: border-box; /* Include padding and border in width calculation */
+}
+
+input, select, button {
+  user-select: text; /* Enable text selection */
+}
+
+button {
+  margin-top: 1rem; /* Add margin above button */
+  padding: 0.75rem 1.5rem; /* Button padding */
+  border: none; /* Remove button border */
+  border-radius: 0.25rem; /* Button border radius */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  font-size: 1rem; /* Button font size */
+  background-color: #007680; /* Button background color */
+  color: #fff; /* Button text color */
+  transition: transform 0.3s, box-shadow 0.3s; /* Transition effects */
+}
+
+button:hover {
+  transform: scale(1.05); /* Scale button on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Add box shadow on hover */
+}
+
+button:focus {
+  outline: none; /* Remove button focus outline */
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.6); /* Add box shadow on focus */
+}
+
+.alert {
+  padding: 1rem; /* Alert padding */
+  margin-bottom: 1rem; /* Add margin below alert */
+  border-radius: 0.5rem; /* Alert border radius */
+}
+
+.bg-red-500 {
+  background-color: #f56565; /* Background color for red alert */
+}
+
+.bg-green-500 {
+  background-color: #48bb78; /* Background color for green alert */
+}
+
+.flex {
+  display: flex; /* Enable flex layout */
+}
+
+.justify-center {
+  justify-content: center; /* Center align flex items horizontally */
+}
+
+.footer {
+  text-align: center; /* Center align text */
+  padding: 1rem; /* Footer padding */
+  background-color: rgba(0, 45, 49, 0.8); /* Footer background color */
+  color: #fff; /* Footer text color */
+}
+
+.fertilizer-container {
+  width: 90%; /* Container width */
+  max-width: 1200px; /* Maximum container width */
+  margin: 0 auto; /* Center align container horizontally */
+  padding: 2rem; /* Container padding */
+  background-color: rgba(255, 255, 255, 0.1); /* Container background color */
+  border-radius: 10px; /* Container border radius */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Container box shadow */
+}
+
+.table-wrapper {
+  width: 100%; /* Full width table wrapper */
+  overflow-x: auto; /* Enable horizontal scrolling */
+  margin-top: 1rem; /* Add margin above table wrapper */
+}
+
+table {
+  width: 100%; /* Full width table */
+  border-collapse: collapse; /* Collapse table borders */
+  background-color: #ffffff; /* Table background color */
+  color: #333333; /* Table text color */
+  border-radius: 8px; /* Table border radius */
+  overflow: hidden; /* Hide table overflow */
+}
+
+table th, table td {
+  padding: 12px 15px; /* Table cell padding */
+  border: 1px solid #dddddd; /* Table cell border */
+  text-align: left; /* Table cell text alignment */
+}
+
+table th {
+  background-color: #007680; /* Table header background color */
+  color: #ffffff; /* Table header text color */
+}
+
+table tbody tr:nth-child(even) {
+  background-color: #f9f9f9; /* Background color for even table rows */
+}
+
+.table-actions {
+  display: flex; /* Enable flex layout */
+  justify-content: center; /* Center align flex items horizontally */
+  gap: 0.5rem; /* Gap between flex items */
+}
+
+button.table-action {
+  padding: 0.5rem 1rem; /* Table action button padding */
+  font-size: 0.875rem; /* Table action button font size */
+}
+
+.modal {
+  position: fixed; /* Fixed position */
+  top: 0; /* Position from top */
+  left: 0; /* Position from left */
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  display: flex; /* Enable flex layout */
+  align-items: center; /* Center align flex items vertically */
+  justify-content: center; /* Center align flex items horizontally */
+  background-color: rgba(0, 45, 49, 0.8); /* Modal background color */
+  z-index: 1000; /* Modal z-index */
+}
+
+.modal-content {
+  background-color: rgba(0, 45, 49, 0.8); /* Modal content background color */
+  padding: 2rem; /* Modal content padding */
+  border-radius: 8px; /* Modal content border radius */
+  width: 90%; /* Modal content width */
+  max-width: 500px; /* Maximum modal content width */
+}
+
+.modal h2 {
+  margin-top: 0; /* Remove default margin */
+  margin-bottom: 1rem; /* Add margin below heading */
+  color: #007680; /* Heading color */
+}
+
+.modal button {
+  margin: 0.5rem 0; /* Add margin above and below buttons */
+}
+
+.header-section {
+  text-align: center; /* Center align text */
+  margin-bottom: 1rem; /* Add margin below header section */
+}
+
+.header-section h1 {
+  margin-bottom: 0.5rem; /* Add margin below heading */
+}
+
+.header-section button {
+  display: inline-block; /* Display button as inline block */
+}
+
+.form-group {
+  margin-bottom: 1.5rem; /* Add margin below form group */
+}
+
+input::placeholder {
+  color: white !important; /* Placeholder text color */
+}

@@ -1,7 +1,3 @@
-# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
-# More GitHub Actions for Azure: https://github.com/Azure/actions
-# More info on Python, GitHub Actions, and Azure App Service: https://aka.ms/python-webapps-actions
-
 name: Build and deploy Python app to Azure Web App - sucafina-we-impact-webapp-01
 
 on:
@@ -17,6 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # Step 1: Set up Python version and virtual environment
       - name: Set up Python version
         uses: actions/setup-python@v5
         with:
@@ -26,12 +23,21 @@ jobs:
         run: |
           python -m venv venv
           source venv/bin/activate
-      
-      - name: Install dependencies
-        run: pip install -r requirements.txt
-        
-      # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
 
+      - name: Install Python dependencies
+        run: pip install -r requirements.txt
+
+      # Step 2: Install frontend dependencies
+      - name: Set up Node.js for frontend
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16' # Assure-toi que la version Node est compatible avec ton projet
+
+      - name: Install frontend dependencies with legacy peer deps
+        run: npm install --legacy-peer-deps
+        working-directory: ./static  # Répertoire de ton frontend
+
+      # Step 3: Zip Python backend and React frontend
       - name: Zip artifact for deployment
         run: zip release.zip ./* -r
 
@@ -59,7 +65,7 @@ jobs:
       - name: Unzip artifact for deployment
         run: unzip release.zip
 
-      
+      # Deploy to Azure Web App
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v3
         id: deploy-to-webapp
