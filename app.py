@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, send_from_directory
 from flask_cors import CORS
 import secrets
 from routes.auth import auth_bp
@@ -14,7 +14,7 @@ from routes.survey_master_data import survey_master_bp
 from routes.real_time_info import real_time_info_bp
 from routes.status import status_bp
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static/public')
 
 # Enable Cross-Origin Resource Sharing (CORS) to allow requests from different origins
 CORS(app, supports_credentials=True)
@@ -35,6 +35,11 @@ app.register_blueprint(origin_economics_bp)
 app.register_blueprint(survey_master_bp)
 app.register_blueprint(real_time_info_bp)
 app.register_blueprint(status_bp)
+
+# Serve the index.html at the root URL
+@app.route('/')
+def serve_index():
+    return send_from_directory(app.static_folder, 'index.html')
 
 if __name__ == '__main__':
     # Run the Flask application in debug mode
