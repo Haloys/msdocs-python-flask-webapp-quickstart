@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './LoginForm.css';
-import logo from './assets/logo.png';
 
 function LoginForm({ onLogin }) {
   const [username, setUsername] = useState(''); // State variable to store the username
