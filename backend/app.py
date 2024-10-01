@@ -1,18 +1,18 @@
 from flask import Flask, send_from_directory, redirect, url_for
 from flask_cors import CORS
 import secrets
-from backend.routes.auth import auth_bp
-from backend.routes.fertilizer import fertilizer_bp
-from backend.routes.fertilizer_cost_data import fertilizer_cost_bp
-from backend.routes.agrochemical import agrochemical_bp
-from backend.routes.agrochemical_cost_data import agrochemical_cost_bp
-from backend.routes.seedling_cost_data import seedling_cost_bp
-from backend.routes.labor_cost_data import labor_cost_bp
-from backend.routes.unit_conversion_data import unit_conversion_bp
-from backend.routes.origin_economics_data import origin_economics_bp
-from backend.routes.survey_master_data import survey_master_bp
-from backend.routes.real_time_info import real_time_info_bp
-from backend.routes.status import status_bp
+from routes.auth import auth_bp
+from routes.fertilizer import fertilizer_bp
+from routes.fertilizer_cost_data import fertilizer_cost_bp
+from routes.agrochemical import agrochemical_bp
+from routes.agrochemical_cost_data import agrochemical_cost_bp
+from routes.seedling_cost_data import seedling_cost_bp
+from routes.labor_cost_data import labor_cost_bp
+from routes.unit_conversion_data import unit_conversion_bp
+from routes.origin_economics_data import origin_economics_bp
+from routes.survey_master_data import survey_master_bp
+from routes.real_time_info import real_time_info_bp
+from routes.status import status_bp
 
 app = Flask(__name__, static_folder='static')
 
