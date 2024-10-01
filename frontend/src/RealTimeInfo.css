@@ -1,0 +1,46 @@
+/* Styles for the real-time info section */
+.real-time-info {
+  margin-top: 2rem; /* Adds a margin on the top */
+  background-color: rgba(0, 45, 49, 0.8); /* Sets the background color with transparency */
+  padding: 20px; /* Adds padding around the content */
+  border-radius: 10px; /* Rounds the corners of the element */
+  color: #fff; /* Sets the text color to white */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Adds a box shadow effect */
+}
+
+/* Styles for the heading in the real-time info section */
+.real-time-info h2 {
+  font-size: 24px; /* Sets the font size of the heading */
+  margin-bottom: 20px; /* Adds a margin at the bottom of the heading */
+  text-align: center; /* Centers the text */
+  color: #00d1b2; /* Sets the text color to a teal shade */
+}
+
+/* Styles for the paragraphs in the real-time info section */
+.real-time-info p {
+  font-size: 18px; /* Sets the font size of the paragraphs */
+  margin: 10px 0; /* Adds a margin on the top and bottom of the paragraphs */
+}
+
+/* Styles for the info cards */
+.info-card {
+  background-color: #007680; /* Sets the background color of the info cards */
+  padding: 15px; /* Adds padding around the content of the info cards */
+  border-radius: 10px; /* Rounds the corners of the info cards */
+  margin: 10px 0; /* Adds a margin on the top and bottom of the info cards */
+  text-align: center; /* Centers the text */
+}
+
+/* Styles for the text inside the info cards */
+.info-card span {
+  display: block; /* Displays the text as a block element */
+  font-size: 24px; /* Sets the font size of the text */
+  font-weight: bold; /* Sets the font weight to bold */
+  color: #fff; /* Sets the text color to white */
+}
+
+/* Styles for the labels inside the info cards */
+.info-card-label {
+  font-size: 16px; /* Sets the font size of the labels */
+  color: #ddd; /* Sets the text color of the labels to a light gray */
+}

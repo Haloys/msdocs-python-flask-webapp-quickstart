@@ -1,32 +1,32 @@
 /* Styles for the login container component */
 .login-container {
-    max-width: 400px; /* Set the maximum width of the container */
-    margin: 100px auto; /* Center the container horizontally with a top margin of 100px */
-    background-color: rgba(0, 45, 49, 0.8); /* Set the background color with transparency */
-    padding: 2rem; /* Add padding inside the container */
-    border-radius: 10px; /* Add rounded corners to the container */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add a box shadow to create a subtle shadow effect */
-    display: flex; /* Use flexbox for layout */
-    flex-direction: column; /* Set the flex direction to column */
-    align-items: center; /* Center the items horizontally */
-    justify-content: center; /* Center the items vertically */
-  }
-  
-  /* Styles for the login logo */
-  .login-logo {
-    height: 100px; /* Set the height of the logo */
-    margin-bottom: 1.5rem; /* Add a bottom margin to create spacing */
-  }
-  
-  /* Styles for the welcome text */
-  .welcome-text {
-    font-size: 1.5rem; /* Set the font size */
-    color: white; /* Set the text color to white */
-    text-align: center; /* Center the text horizontally */
-    margin-top: 1rem; /* Add a top margin to create spacing */
-  }
-  
-  /* Styles for the mb-4 class within the login container */
-  .login-container .mb-4 {
-    margin-bottom: 1rem; /* Add a bottom margin to create spacing */
-  }
+  max-width: 400px; /* Set the maximum width of the container */
+  margin: 100px auto; /* Center the container horizontally with a top margin of 100px */
+  background-color: rgba(0, 45, 49, 0.8); /* Set the background color with transparency */
+  padding: 2rem; /* Add padding inside the container */
+  border-radius: 10px; /* Add rounded corners to the container */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add a box shadow to create a subtle shadow effect */
+  display: flex; /* Use flexbox for layout */
+  flex-direction: column; /* Set the flex direction to column */
+  align-items: center; /* Center the items horizontally */
+  justify-content: center; /* Center the items vertically */
+}
+
+/* Styles for the login logo */
+.login-logo {
+  height: 100px; /* Set the height of the logo */
+  margin-bottom: 1.5rem; /* Add a bottom margin to create spacing */
+}
+
+/* Styles for the welcome text */
+.welcome-text {
+  font-size: 1.5rem; /* Set the font size */
+  color: white; /* Set the text color to white */
+  text-align: center; /* Center the text horizontally */
+  margin-top: 1rem; /* Add a top margin to create spacing */
+}
+
+/* Styles for the mb-4 class within the login container */
+.login-container .mb-4 {
+  margin-bottom: 1rem; /* Add a bottom margin to create spacing */
+}

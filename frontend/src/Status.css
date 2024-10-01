@@ -1,0 +1,38 @@
+.status-container {
+    max-width: 1200px; /* Set the maximum width of the container to 1200 pixels */
+    margin: 0 auto; /* Center the container horizontally */
+    padding: 20px; /* Add 20 pixels of padding to the container */
+    text-align: center; /* Center the text inside the container */
+}
+
+h1 {
+    font-size: 32px; /* Set the font size of the heading to 32 pixels */
+    margin-bottom: 40px; /* Add 40 pixels of margin at the bottom of the heading */
+    color: #d3d3d3; /* Set the color of the heading to a light gray */
+}
+
+.status-grid {
+    display: grid; /* Use CSS grid for the layout */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Create grid columns that automatically fill the available space with a minimum width of 300 pixels */
+    gap: 30px; /* Add a gap of 30 pixels between grid items */
+}
+
+.status-box {
+    background-color: #d3e4d1; /* Set the background color of the box to a light green */
+    border: 1px solid #ddd; /* Add a 1 pixel solid border with a light gray color */
+    padding: 40px; /* Add 40 pixels of padding to the box */
+    border-radius: 12px; /* Round the corners of the box with a radius of 12 pixels */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Add a box shadow to the box */
+    text-align: center; /* Center the text inside the box */
+}
+
+.status-box h2 {
+    font-size: 18px; /* Set the font size of the subheading to 18 pixels */
+    color: #4F7942; /* Set the color of the subheading to a dark green */
+    margin-bottom: 15px; /* Add 15 pixels of margin at the bottom of the subheading */
+}
+
+.status-box p {
+    font-size: 14px; /* Set the font size of the paragraph to 14 pixels */
+    color: #2E8B57; /* Set the color of the paragraph to a medium green */
+}

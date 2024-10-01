@@ -23,7 +23,7 @@ function LoginForm({ onLogin }) {
 
   return (
     <div className="login-container">
-      <img src={logo} alt="Logo" className="login-logo" />
+      <img src="/logo.png" alt="Logo" className="login-logo" />
       <h1 className="text-2xl font-bold mb-4">Welcome</h1>
       {error && <div className="alert bg-red-500 text-white p-2 mb-4 rounded">{error}</div>}
       <div className="mb-4">
