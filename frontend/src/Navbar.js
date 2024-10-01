@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logo from './assets/logo.png';
 import './Navbar.css';
 
 function Navbar({ onLogout, isAdmin }) {
@@ -8,7 +7,7 @@ function Navbar({ onLogout, isAdmin }) {
     <header className="header">
       <div className="navbar-container">
         {/* Logo */}
-        <img src={logo} alt="Logo" className="navbar-logo" />
+        <img src="/logo.png" alt="Logo" className="navbar-logo" />
         <nav className="navbar-links">
           {/* Dashboard link */}
           <Link to="/" className="navbar-link">Dashboard</Link>
