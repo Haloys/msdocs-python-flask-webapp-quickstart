@@ -19,25 +19,25 @@ import axios from 'axios';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false); // State to track if user is logged in
-  const [isAdmin, setIsAdmin] = useState(false); // State to track if user is an admin
+  //const [isAdmin, setIsAdmin] = useState(false); // State to track if user is an admin
   const history = useHistory(); // Access to the browser history
 
   // Function to handle user login
   const handleLogin = (username) => {
     setLoggedIn(true); // Set loggedIn state to true
-    setIsAdmin(username === 'admin'); // Set isAdmin state based on username
+    //setIsAdmin(username === 'admin'); // Set isAdmin state based on username
     history.push("/"); // Redirect user to home page
   };
 
   // Function to handle user logout
-  const handleLogout = () => {
-    axios.post('https://sucafina-we-impact-webapp-01-gch6g5bjhrbndje6.westeurope-01.azurewebsites.net/logout', {}, { withCredentials: true })
-      .then(response => {
-        setLoggedIn(false); // Set loggedIn state to false
-        setIsAdmin(false); // Set isAdmin state to false
-        history.push("/login"); // Redirect user to login page
-      });
-  };
+  //const handleLogout = () => {
+  //  axios.post('https://sucafina-we-impact-webapp-01-gch6g5bjhrbndje6.westeurope-01.azurewebsites.net/logout', {}, { withCredentials: true })
+  //    .then(response => {
+  //      setLoggedIn(false); // Set loggedIn state to false
+  //      setIsAdmin(false); // Set isAdmin state to false
+  //      history.push("/login"); // Redirect user to login page
+  //    });
+  //};
 
 return (
     <Router>
