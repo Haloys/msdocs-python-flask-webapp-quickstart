@@ -9,7 +9,7 @@ import { BrowserRouter as Router, Route, Switch, Redirect, useHistory } from 're
 //import UnitConversionData from './UnitConversionData';
 //import OriginEconomicsData from './OriginEconomicsData';
 //import SurveyMasterData from './SurveyMasterData';
-//import LoginForm from './LoginForm';
+import LoginForm from './LoginForm';
 //import AdminPanel from './AdminPanel';
 //import Status from './Status';
 //import Home from './Home';
@@ -39,19 +39,19 @@ function App() {
       });
   };
 
-  return (
+return (
     <Router>
-      <div className="App">
-        {loggedIn && <Navbar onLogout={handleLogout} isAdmin={isAdmin} />} {/* Show Navbar component if user is logged in */}
-        <Switch>
-          <Route path="/" exact>
-            {loggedIn ? <Home onLogout={handleLogout} /> : <Redirect to="/login" />} {/* Show Home component if user is logged in, otherwise redirect to login page */}
-          </Route>
-          <Route path="/login">
-            {loggedIn ? <Redirect to="/" /> : <LoginForm onLogin={handleLogin} />} {/* Show LoginForm component if user is not logged in, otherwise redirect to home page */}
-          </Route>
+        <div className="App">
+            {/* {loggedIn && <Navbar onLogout={handleLogout} isAdmin={isAdmin} />} */}
+            <Switch>
+                {/* <Route path="/" exact>
+                    {loggedIn ? <Home onLogout={handleLogout} /> : <Redirect to="/login" />} 
+                </Route> */}
+                <Route path="/login">
+                    {loggedIn ? <Redirect to="/" /> : <LoginForm onLogin={handleLogin} />} {/* Show LoginForm component if user is not logged in, otherwise redirect to home page */}
+                </Route>
 
-          {/* Commented routes for future use */}
+                {/* Commented routes for future use */}
           {/* <Route path="/admin">
             {loggedIn && isAdmin ? <AdminPanel /> : <Redirect to="/login" />} 
           </Route>
