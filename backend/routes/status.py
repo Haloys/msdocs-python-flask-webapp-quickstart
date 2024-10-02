@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify
-from routes.db import get_db_connection
+from backend.routes.db import get_db_connection
 
 status_bp = Blueprint('status', __name__)
 

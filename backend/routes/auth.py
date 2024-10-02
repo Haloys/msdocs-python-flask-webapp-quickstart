@@ -1,6 +1,6 @@
 from flask import Blueprint, request, jsonify, session
 import pymssql
-from routes.db import get_db_connection
+from backend.routes.db import get_db_connection
 import bcrypt
 
 auth_bp = Blueprint('auth', __name__)

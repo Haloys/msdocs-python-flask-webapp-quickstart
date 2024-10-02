@@ -1,6 +1,6 @@
 from flask import Blueprint, request, jsonify
-from routes.auth import login_required
-from routes.db import get_db_connection
+from backend.routes.auth import login_required
+from backend.routes.db import get_db_connection
 
 agrochemical_bp = Blueprint('agrochemical', __name__)
 
