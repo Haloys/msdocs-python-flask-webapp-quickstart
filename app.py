@@ -36,21 +36,21 @@ app.register_blueprint(survey_master_bp)
 app.register_blueprint(real_time_info_bp)
 app.register_blueprint(status_bp)
 
-# Route to serve static files (CSS, JS, images)
-@app.route('/static/<path:path>')
-def serve_static_files(path):
-    return send_from_directory('static', path)
-
-# Serve the index.html at the /login URL for frontend
-@app.route('/login', methods=['GET'])
+@app.route('/login')
 def serve_login_page():
     return send_from_directory(app.static_folder + '/public', 'index.html')
 
-# Redirect root URL to /login
+@app.route('/<path:path>')
+def serve_public_files(path):
+    return send_from_directory('frontend/public', path)
+
+@app.route('/static/<path:path>')
+def serve_static_files(path):
+    return send_from_directory(app.static_folder + '/static', path)
+
 @app.route('/')
 def redirect_to_login():
     return redirect(url_for('serve_login_page'))
 
 if __name__ == '__main__':
-    # Run the Flask application in debug mode
     app.run(debug=True)
