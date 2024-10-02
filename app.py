@@ -40,6 +40,7 @@ app.register_blueprint(status_bp)
 def serve_login_page():
     return send_from_directory(app.static_folder + '/public', 'index.html')
 
+# Route to serve public files (like logo.png)
 @app.route('/<path:path>')
 def serve_public_files(path):
     return send_from_directory('frontend/public', path)
